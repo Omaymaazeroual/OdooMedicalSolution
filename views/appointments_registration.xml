@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Define the form view for patient appointments -->
+    <record id="view_appointment_form_patient" model="ir.ui.view">
+        <field name="name">appointment.form.patient</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <!-- Fields for patient appointment -->
+                        <field name="dateofAppointment"/>
+                        <field name="description" placeholder="Description of the issue"/>
+                        <field name="typeofIllness" placeholder="Type of Illness"/>
+
+                        <field name="patient_id" />
+                        <!-- Additional fields -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the view for the patient's appointments list -->
+    <record id="view_patient_appointments_list" model="ir.ui.view">
+        <field name="name">patient.appointments.list</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Fields to display in the patient's list -->
+                <field name="dateofAppointment"/>
+                <field name="description"/>
+                <field name="typeofIllness"/>
+
+                <!-- Apply the domain filter for the patient's appointments -->
+                <field name="patient_id" context="{'user_id': uid}"/>
+
+                <field name="dateofChecking" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

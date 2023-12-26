@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Define the action for List Patients -->
+    <record id="action_medical_patient_list_view" model="ir.actions.act_window">
+        <field name="name">Register to the Lab</field>
+        <field name="res_model">medical.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the action for Medical Files -->
+    <record id="action_medical_file_form_view" model="ir.actions.act_window">
+        <field name="name">Medical Files</field>
+        <field name="res_model">medical.medical_file</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the menu -->
+    <menuitem name="Medical" id="menu_medical_root"/>
+
+<!--    &lt;!&ndash; Create a submenu for Patients &ndash;&gt;-->
+<!--    <menuitem name="Patients" id="menu_medical_patients" parent="menu_medical_root"/>-->
+
+    <!-- Add List Patients under Patients menu -->
+    <menuitem name="Register" id="menu_medical_list_patients" parent="menu_medical_root" action="action_medical_patient_list_view"/>
+
+    <!-- Add Medical Files under Patients menu -->
+    <menuitem name=" Medical files" id="menu_medical_files" parent="menu_medical_root" action="action_medical_file_form_view"/>
+</odoo>

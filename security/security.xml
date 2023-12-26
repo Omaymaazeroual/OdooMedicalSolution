@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Define module category -->
+    <record model="ir.module.category" id="module_category_cabinet">
+        <field name="name">Cabinet Management</field>
+        <field name="description">Category for cabinet</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <!-- Define groups -->
+    <record id="group_cabinet_doctor" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="module_category_cabinet"/>
+    </record>
+
+    <record id="group_cabinet_assistant" model="res.groups">
+        <field name="name">Assistant</field>
+        <field name="category_id" ref="module_category_cabinet"/>
+        <field name="implied_ids" eval="[(4, ref('group_cabinet_doctor'))]"/>
+    </record>
+
+    <record id="group_cabinet_patient" model="res.groups">
+        <field name="name">Patient</field>
+        <field name="category_id" ref="module_category_cabinet"/>
+        <field name="implied_ids" eval="[(4, ref('group_cabinet_doctor'))]"/>
+    </record>
+
+
+
+</odoo>

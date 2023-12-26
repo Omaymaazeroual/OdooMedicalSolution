@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Define the action (to link to the view) -->
+    <record id="action_medical_file_form_view" model="ir.actions.act_window">
+        <field name="name">Medical Files</field>
+        <field name="res_model">medical.medical_file</field>
+        <field name="view_mode">form,tree</field>
+    </record>
+
+    <!-- Define the menu -->
+    <menuitem name="Medical" id="menu_medical_root"/>
+
+    <menuitem name="Medical Files" id="menu_medical_files" parent="menu_medical_root" action="action_medical_file_form_view"/>
+
+    <!-- Define the form view -->
+    <record id="view_medical_file_form" model="ir.ui.view">
+        <field name="name">medical.medical_file.form</field>
+        <field name="model">medical.medical_file</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="consultations" widget="many2many_tags"/>
+                        <field name="patient"/>
+                        <!-- Place attachments field inside the group -->
+                        <field name="attachments" widget="binary" filename="Attachment"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the tree view -->
+    <record id="view_medical_file_tree" model="ir.ui.view">
+        <field name="name">medical.medical_file.tree</field>
+        <field name="model">medical.medical_file</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="consultations"/>
+                <field name="patient"/>
+
+            </tree>
+        </field>
+    </record>
+</odoo>

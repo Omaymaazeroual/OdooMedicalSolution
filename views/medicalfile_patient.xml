@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_medical_file_patient" model="ir.ui.view">
+        <field name="name">medical.medical_file.form.patient</field>
+        <field name="model">medical.medical_file</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient" readonly="1"/>
+                        <field name="consultations" widget="many2many_tags"/>
+
+                        <!-- Add more fields related to the medical file here -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <!-- Define the action for listing all appointments -->
+    <record id="action_appointments_form_view" model="ir.actions.act_window">
+        <field name="name">All Appointments</field>
+        <field name="res_model">medical.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the menu -->
+    <menuitem name="Medical" id="menu_medical_root"/>
+
+
+    <menuitem name="Appointments" id="menu_medical_appointments" parent="menu_medical_root" action="action_appointments_form_view"/>
+</odoo>

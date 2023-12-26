@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Define the action for List Consultations -->
+    <record id="action_medical_consultation_list_view" model="ir.actions.act_window">
+        <field name="name">List Consultations</field>
+        <field name="res_model">medical.consultation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define the action for Create Consultation -->
+    <record id="action_medical_consultation_form_view" model="ir.actions.act_window">
+        <field name="name">Create Consultation</field>
+        <field name="res_model">medical.consultation</field>
+        <field name="view_mode">form</field>
+        <!-- Define other required fields for creating a consultation -->
+    </record>
+
+    <record id="view_medical_consultation_tree" model="ir.ui.view">
+        <field name="name">medical.consultation.tree</field>
+        <field name="model">medical.consultation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="motif"/>
+                <field name="consultationDate"/>
+                <field name="price"/>
+                <field name="prescription"/>
+                <field name="medical_file"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- Define the menu -->
+    <menuitem name="Medical" id="menu_medical_root"/>
+
+    <!-- Create a submenu for Consultations -->
+    <menuitem name="Consultations" id="menu_medical_consultations" parent="menu_medical_root"/>
+
+    <!-- Add Create Consultation under Consultations menu -->
+    <menuitem name="Create Consultation" id="menu_create_consultation" parent="menu_medical_consultations" action="action_medical_consultation_form_view"/>
+
+    <!-- Add List Consultations under Consultations menu -->
+    <menuitem name="List Consultations" id="menu_list_consultations" parent="menu_medical_consultations" action="action_medical_consultation_list_view"/>
+
+    <!-- Create a submenu for Gestion under Consultations menu -->
+    <menuitem name="Gestion" id="menu_gestion" parent="menu_medical_consultations"/>
+</odoo>

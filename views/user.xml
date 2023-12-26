@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Define the action (to link to the view) -->
+    <record id="action_medical_user_tree_view" model="ir.actions.act_window">
+        <field name="name">Medical Users</field>
+        <field name="res_model">medical.user</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    &lt;!&ndash; Define the menu &ndash;&gt;-->
+<!--    <menuitem name="Medical" id="menu_medical_root"/>-->
+
+<!--    <menuitem name="Users" id="menu_medical_users" parent="menu_medical_root" action="action_medical_user_tree_view"/>-->
+
+    <!-- Define the tree view -->
+    <record id="view_medical_user_tree" model="ir.ui.view">
+        <field name="name">medical.user.tree</field>
+        <field name="model">medical.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="firstName"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

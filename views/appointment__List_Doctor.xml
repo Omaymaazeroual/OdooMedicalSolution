@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_doctor_appointments_list" model="ir.ui.view">
+        <field name="name">doctor.appointments.list</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Fields to display in the doctor's list -->
+<!--                <field name="dateofChecking"/>-->
+                <field name="dateofAppointment"/>
+                <field name="description"/>
+                <field name="typeofIllness"/>
+
+                <field name="user_id"/>
+                <!-- Additional fields -->
+            </tree>
+        </field>
+    </record>
+
+</odoo>

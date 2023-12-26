@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_patient_info_list" model="ir.ui.view">
+        <field name="name">patient.info.list</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="firstName"/>
+                <field name="lastName"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="birthDate"/>
+                <field name="gender"/>
+                <field name="user_id" options="{'no_create_edit': True}" invisible="1"/>
+                <!-- Add more fields to display in the list -->
+                <!-- Apply the domain filter for the user's records -->
+                <field name="user_id" domain="[('user_id', '=', 1)]"/>
+
+
+            </tree>
+        </field>
+    </record>
+</odoo>

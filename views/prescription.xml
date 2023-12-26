@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Define the views -->
+    <record id="view_medical_prescription_form" model="ir.ui.view">
+        <field name="name">medical.prescription.form</field>
+        <field name="model">medical.prescription</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="dateOfPrescription"/>
+                        <field name="description"/>
+                        <field name="medicationList"/>
+                        <!-- Add other fields as needed -->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_medical_prescription_list" model="ir.ui.view">
+        <field name="name">medical.prescription.list</field>
+        <field name="model">medical.prescription</field>
+        <field name="arch" type="xml">
+            <tree string="Prescriptions">
+                <field name="title"/>
+                <field name="dateOfPrescription"/>
+                <field name="description"/>
+                <field name="medicationList"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define the action -->
+    <record id="action_medical_prescription" model="ir.actions.act_window">
+        <field name="name">Prescription</field>
+        <field name="res_model">medical.prescription</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_medical_prescription_list"/>
+    </record>
+
+    <!-- Define the menu -->
+    <menuitem id="menu_medical_root" name="Medical" sequence="10"/>
+    <menuitem id="menu_medical_prescription" parent="menu_medical_root" name="Prescriptions" action="action_medical_prescription"/>
+    <menuitem id="menu_medical_prescription_list" parent="menu_medical_prescription" name="List of Prescriptions" action="action_medical_prescription"/>
+    <menuitem id="menu_medical_prescription_create" parent="menu_medical_prescription" name="Create Prescription" action="action_medical_prescription" />
+</odoo>

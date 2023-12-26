@@ -1,0 +1,58 @@
+<odoo>
+    <record id="action_patient_info_list" model="ir.actions.act_window">
+        <field name="name">Your Information</field>
+        <field name="res_model">medical.patient</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="medical.view_registered_patients_list"/>
+        <!-- Check the domain filter for patients -->
+        <field name="domain" eval="[(1, '=', 1)]"/>
+        <!-- Set the domain dynamically based on the user's role -->
+        <field name="groups_id" eval="[(4, ref('group_cabinet_doctor'))]"/>
+    </record>
+
+
+    <record id="view_patient_registration_form" model="ir.ui.view">
+        <field name="name">medical.patient.registration.form</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="firstName" placeholder="First Name"/>
+                        <field name="lastName" placeholder="Last Name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="birthDate"/>
+                        <field name="gender"/>
+                        <field name="user_id" options="{'no_create_edit': True}"/>
+                        <!-- Add more fields as needed for patient registration -->
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_registered_patients_list" model="ir.ui.view">
+        <field name="name">registered.patients.list</field>
+        <field name="model">medical.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="firstName"/>
+                <field name="lastName"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="birthDate"/>
+                <field name="gender"/>
+                <field name="user_id" options="{'no_create_edit': True}"/>
+                <!-- Add more fields to display in the list -->
+            </tree>
+        </field>
+    </record>
+
+
+
+
+
+
+</odoo>
